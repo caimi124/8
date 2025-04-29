@@ -1,9 +1,3 @@
-import { BlogCard } from '../../components/BlogCard'
-import { FaSearch } from 'react-icons/fa'
-import { useTranslation } from 'next-i18next'
-import { useState, useMemo } from 'react'
-import SearchBar from '../../components/SearchBar'
-import { useParams } from 'next/navigation'
 import BlogClient from './BlogClient'
 
 type Locale = 'zh' | 'en'
