@@ -5,6 +5,7 @@ import { FaSearch } from 'react-icons/fa'
 import { useTranslation } from 'next-i18next'
 import { useState, useMemo } from 'react'
 import SearchBar from '../../components/SearchBar'
+import { useParams } from 'next/navigation'
 
 type Locale = 'zh' | 'en'
 
@@ -138,83 +139,54 @@ const blogPosts: BlogPost[] = [
   }
 ]
 
-interface BlogPageProps {
-  locale: Locale
-}
-
-export default function BlogPage({ locale }: BlogPageProps) {
+export default function BlogPage() {
   const { t } = useTranslation('common')
   const [searchQuery, setSearchQuery] = useState('')
+  const params = useParams()
+  const locale = (params?.locale as Locale) || 'zh'
 
   const filteredPosts = useMemo(() => {
     if (!searchQuery) return blogPosts
 
-    const query = searchQuery.toLowerCase()
     return blogPosts.filter(post => {
-      const title = post.title[locale].toLowerCase()
-      const excerpt = post.excerpt[locale].toLowerCase()
-      const author = post.author[locale].toLowerCase()
-      const tags = post.tags[locale].join(' ').toLowerCase()
-
+      const searchLower = searchQuery.toLowerCase()
       return (
-        title.includes(query) ||
-        excerpt.includes(query) ||
-        author.includes(query) ||
-        tags.includes(query)
+        post.title[locale].toLowerCase().includes(searchLower) ||
+        post.excerpt[locale].toLowerCase().includes(searchLower) ||
+        post.tags[locale].some(tag => tag.toLowerCase().includes(searchLower))
       )
     })
   }, [searchQuery, locale])
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* 博客头部 */}
-      <div className="bg-white shadow-sm">
-        <div className="container mx-auto px-4 py-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            {t('nav.blog')}
-          </h1>
-          <p className="text-xl text-gray-600 mb-8">
-            {locale === 'zh' 
-              ? "探索传统中医智慧，了解现代科学研究"
-              : "Explore Traditional TCM Wisdom, Understand Modern Scientific Research"
-            }
-          </p>
-          
-          {/* 搜索框 */}
-          <div className="max-w-2xl">
-            <SearchBar onSearch={setSearchQuery} />
-          </div>
-        </div>
-      </div>
+    <div className="container mx-auto px-4 py-8">
+      <div className="max-w-4xl mx-auto">
+        <h1 className="text-3xl font-bold mb-2">{t('blog.title')}</h1>
+        <p className="text-gray-600 mb-8">{t('blog.subtitle')}</p>
 
-      {/* 博客内容 */}
-      <div className="container mx-auto px-4 py-12">
-        {filteredPosts.length === 0 ? (
-          <div className="text-center py-12">
-            <p className="text-gray-500 text-lg">
-              {locale === 'zh' 
-                ? "没有找到相关文章"
-                : "No articles found"
-              }
-            </p>
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredPosts.map((post) => (
-              <BlogCard 
-                key={post.id} 
-                post={{
-                  ...post,
-                  title: post.title[locale],
-                  excerpt: post.excerpt[locale],
-                  author: post.author[locale],
-                  tags: post.tags[locale],
-                  readTime: post.readTime[locale]
-                }} 
-              />
-            ))}
-          </div>
-        )}
+        <div className="mb-8">
+          <SearchBar
+            value={searchQuery}
+            onChange={setSearchQuery}
+            placeholder={t('blog.searchPlaceholder')}
+          />
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {filteredPosts.map(post => (
+            <BlogCard
+              key={post.id}
+              post={{
+                ...post,
+                title: post.title[locale],
+                excerpt: post.excerpt[locale],
+                author: post.author[locale],
+                tags: post.tags[locale],
+                readTime: post.readTime[locale]
+              }}
+            />
+          ))}
+        </div>
       </div>
     </div>
   )
