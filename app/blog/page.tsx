@@ -1,35 +1,13 @@
+import { Metadata } from 'next'
 import BlogClient from './BlogClient'
 
-type Locale = 'zh' | 'en'
-
-interface BlogPost {
-  id: string
-  title: {
-    zh: string
-    en: string
-  }
-  excerpt: {
-    zh: string
-    en: string
-  }
-  coverImage: string
-  author: {
-    zh: string
-    en: string
-  }
-  date: string
-  tags: {
-    zh: string[]
-    en: string[]
-  }
-  readTime: {
-    zh: string
-    en: string
-  }
+export const metadata: Metadata = {
+  title: '草药知识库 | 探索传统中医与现代科学',
+  description: '深入了解传统中药的现代科学解读，探索中医养生之道，获取权威的草药知识。'
 }
 
 // 示例博客文章数据
-const blogPosts: BlogPost[] = [
+const blogPosts = [
   {
     id: "1",
     title: {
@@ -132,6 +110,6 @@ const blogPosts: BlogPost[] = [
   }
 ]
 
-export default function BlogPage() {
+export default function Page() {
   return <BlogClient blogPosts={blogPosts} />
 } 
