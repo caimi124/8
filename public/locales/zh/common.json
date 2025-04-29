@@ -1,0 +1,23 @@
+{
+  "meta": {
+    "title": "东方草药科学 - 传统中医智慧与现代科技的结合",
+    "description": "探索传统中医草药知识，了解现代科学研究成果，获取权威的中医药健康资讯。"
+  },
+  "nav": {
+    "home": "首页",
+    "herbs": "草药库",
+    "symptoms": "症状查询",
+    "blog": "草药知识",
+    "about": "关于我们"
+  },
+  "blog": {
+    "search": "搜索文章...",
+    "readMore": "阅读更多",
+    "relatedArticles": "相关文章",
+    "share": "分享",
+    "bookmark": "收藏",
+    "readTime": "阅读时间",
+    "author": "作者",
+    "date": "发布日期"
+  }
+} 

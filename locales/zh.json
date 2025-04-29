@@ -1,0 +1,78 @@
+{
+  "common": {
+    "home": "首页",
+    "herbDatabase": "中药数据库",
+    "symptomCheck": "症状推荐",
+    "search": "搜索",
+    "searchPlaceholder": "搜索中药或症状...",
+    "login": "登录",
+    "logout": "退出",
+    "comments": "用户评论",
+    "writeComment": "写下您的评论...",
+    "submit": "提交",
+    "submitting": "提交中...",
+    "loginToComment": "请登录后发表评论"
+  },
+  "home": {
+    "title": "东方草药科学化",
+    "subtitle": "传统草药，现代科学",
+    "herbDatabase": "中药数据库",
+    "symptomRecommendation": "症状推荐"
+  },
+  "herbs": {
+    "huangqi": {
+      "name": "黄芪",
+      "description": "黄芪是一种用于增强免疫力的草药，具有补气升阳、益卫固表、利水消肿、生津养血、行气活血、托毒排脓、敛疮生肌的功效。",
+      "benefits": [
+        "增强免疫力",
+        "补气升阳",
+        "益卫固表",
+        "利水消肿",
+        "生津养血",
+        "行气活血",
+        "托毒排脓",
+        "敛疮生肌"
+      ]
+    },
+    "lingzhi": {
+      "name": "灵芝",
+      "description": "灵芝是一种珍贵的中药材，具有补气安神、益心润肺、延年益寿的功效。现代研究表明，灵芝具有增强免疫力、抗肿瘤、保肝等作用。",
+      "benefits": [
+        "补气安神",
+        "益心润肺",
+        "延年益寿",
+        "增强免疫力",
+        "抗肿瘤",
+        "保肝"
+      ]
+    },
+    "jianghuang": {
+      "name": "姜黄素",
+      "description": "姜黄素是从姜黄中提取的活性成分，具有强大的抗炎、抗氧化作用。研究表明，它可以帮助缓解关节炎、改善认知功能、预防心血管疾病。",
+      "benefits": [
+        "抗炎",
+        "抗氧化",
+        "缓解关节炎",
+        "改善认知功能",
+        "预防心血管疾病"
+      ]
+    }
+  },
+  "symptoms": {
+    "insomnia": {
+      "name": "失眠",
+      "description": "难以入睡或保持睡眠状态",
+      "recommendedHerb": "灵芝"
+    },
+    "anxiety": {
+      "name": "焦虑",
+      "description": "持续的紧张和担忧状态",
+      "recommendedHerb": "黄芪"
+    },
+    "indigestion": {
+      "name": "消化不良",
+      "description": "胃部不适，消化功能减弱",
+      "recommendedHerb": "姜黄素"
+    }
+  }
+} 

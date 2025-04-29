@@ -1,0 +1,79 @@
+{
+  "common": {
+    "home": "Home",
+    "herbDatabase": "Herb Database",
+    "symptomCheck": "Symptom Check",
+    "search": "Search",
+    "searchPlaceholder": "Search herbs or symptoms...",
+    "login": "Login",
+    "logout": "Logout",
+    "comments": "User Comments",
+    "writeComment": "Write your comment...",
+    "submit": "Submit",
+    "submitting": "Submitting...",
+    "loginToComment": "Please login to comment"
+  },
+  "home": {
+    "title": "Eastern Herbal Science",
+    "subtitle": "Traditional Herbs, Modern Science",
+    "herbDatabase": "Herb Database",
+    "symptomRecommendation": "Symptom Recommendation"
+  },
+  "herbs": {
+    "huangqi": {
+      "name": "Astragalus",
+      "description": "Astragalus is a herb used to enhance immunity, with benefits including qi tonification, yang elevation, defensive qi strengthening, water retention reduction, fluid generation, blood nourishment, qi and blood circulation promotion, toxin expulsion, and wound healing.",
+      "benefits": [
+        "Enhances immunity",
+        "Tonifies qi and elevates yang",
+        "Strengthens defensive qi",
+        "Reduces water retention",
+        "Generates body fluids",
+        "Nourishes blood",
+        "Promotes qi and blood circulation",
+        "Expels toxins",
+        "Heals wounds"
+      ]
+    },
+    "lingzhi": {
+      "name": "Lingzhi",
+      "description": "Lingzhi is a precious Chinese herb known for its benefits in qi tonification, mind calming, heart and lung nourishment, and longevity promotion. Modern research shows it enhances immunity, has anti-tumor properties, and protects the liver.",
+      "benefits": [
+        "Tonifies qi and calms the mind",
+        "Nourishes heart and lungs",
+        "Promotes longevity",
+        "Enhances immunity",
+        "Anti-tumor properties",
+        "Liver protection"
+      ]
+    },
+    "jianghuang": {
+      "name": "Curcumin",
+      "description": "Curcumin, extracted from turmeric, possesses powerful anti-inflammatory and antioxidant properties. Research indicates it can help relieve arthritis, improve cognitive function, and prevent cardiovascular diseases.",
+      "benefits": [
+        "Anti-inflammatory",
+        "Antioxidant",
+        "Relieves arthritis",
+        "Improves cognitive function",
+        "Prevents cardiovascular diseases"
+      ]
+    }
+  },
+  "symptoms": {
+    "insomnia": {
+      "name": "Insomnia",
+      "description": "Difficulty falling asleep or staying asleep",
+      "recommendedHerb": "Lingzhi"
+    },
+    "anxiety": {
+      "name": "Anxiety",
+      "description": "Persistent state of tension and worry",
+      "recommendedHerb": "Astragalus"
+    },
+    "indigestion": {
+      "name": "Indigestion",
+      "description": "Stomach discomfort and weakened digestion",
+      "recommendedHerb": "Curcumin"
+    }
+  }
+} 

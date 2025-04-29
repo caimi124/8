@@ -5,6 +5,11 @@ const nextConfig = {
   images: {
     domains: ['images.unsplash.com'],
     unoptimized: true
+  },
+  i18n: {
+    locales: ['zh', 'en'],
+    defaultLocale: 'zh',
+    localeDetection: true
   }
 }
 

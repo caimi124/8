@@ -1,0 +1,23 @@
+{
+  "meta": {
+    "title": "Eastern Herbal Science - Where Traditional Wisdom Meets Modern Technology",
+    "description": "Explore traditional Chinese herbal knowledge, understand modern scientific research, and access authoritative TCM health information."
+  },
+  "nav": {
+    "home": "Home",
+    "herbs": "Herb Library",
+    "symptoms": "Symptom Query",
+    "blog": "Herbal Knowledge",
+    "about": "About Us"
+  },
+  "blog": {
+    "search": "Search articles...",
+    "readMore": "Read More",
+    "relatedArticles": "Related Articles",
+    "share": "Share",
+    "bookmark": "Bookmark",
+    "readTime": "Read Time",
+    "author": "Author",
+    "date": "Publication Date"
+  }
+} 
