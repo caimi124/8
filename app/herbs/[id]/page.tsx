@@ -104,13 +104,10 @@ export default async function HerbPage({ params }: PageProps) {
           </div>
 
           <div className="mt-12">
-            <CommentSection 
-              herbId={params.id}
-              comments={herb.comments} 
-              onAddComment={async (content: string) => {
-                'use server'
-                return await addComment(params.id, content)
-              }}
+            <CommentSection
+              herbId={herb.id}
+              comments={herb.comments}
+              onAddComment={addComment}
             />
           </div>
         </div>
