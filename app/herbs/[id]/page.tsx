@@ -1,11 +1,24 @@
+'use client'
+
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
-import Header from '../../../components/Header'
+import { Header } from '../../../components/Header'
 import Footer from '../../../components/Footer'
 import CommentSection from '../../../components/CommentSection'
 import { prisma } from '../../../lib/prisma'
 
-interface HerbPageProps {
+interface Herb {
+  id: string
+  name: string
+  description: string
+  image: string
+  benefits: string[]
+  symptoms: string[]
+  dosage: string
+  precautions: string[]
+}
+
+interface PageProps {
   params: {
     id: string
   }
@@ -37,7 +50,7 @@ async function getHerb(id: string) {
   return herb
 }
 
-export default async function HerbPage({ params }: HerbPageProps) {
+export default async function HerbPage({ params }: PageProps) {
   const herb = await getHerb(params.id)
 
   return (

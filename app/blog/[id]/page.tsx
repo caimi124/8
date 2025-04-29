@@ -178,12 +178,15 @@ const article: Article = {
   ]
 }
 
-interface BlogPostPageProps {
-  locale: Locale
+interface PageProps {
+  params: {
+    id: string
+  }
 }
 
-export default function BlogPostPage({ locale }: BlogPostPageProps) {
+export default function BlogPostPage({ params }: PageProps) {
   const { t } = useTranslation('common')
+  const locale = 'zh' // 这里可以根据实际需求设置语言
 
   return (
     <>
