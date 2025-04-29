@@ -13,7 +13,7 @@ interface CommentSectionProps {
     }
     createdAt: string
   }[]
-  onAddComment: (content: string) => Promise<{
+  onAddComment: (herbId: string, content: string) => Promise<{
     success: boolean
     comment?: {
       id: string
@@ -41,7 +41,7 @@ export default function CommentSection({ herbId, comments, onAddComment }: Comme
     setError(null)
 
     try {
-      const result = await onAddComment(newComment)
+      const result = await onAddComment(herbId, newComment)
       if (result.success && result.comment) {
         setNewComment('')
       } else {
