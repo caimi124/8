@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 import { useState } from 'react'
 import { FaStar, FaChevronDown, FaChevronUp, FaHeart, FaShare, FaShoppingCart } from 'react-icons/fa'

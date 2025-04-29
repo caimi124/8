@@ -1,7 +1,10 @@
+'use client'
+
 import Image from 'next/image'
 import { FaCalendar, FaUser, FaTags, FaShare, FaBookmark } from 'react-icons/fa'
 import { useTranslation } from 'next-i18next'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useState } from 'react'
+import CommentSection from '../../../components/CommentSection'
 import Head from 'next/head'
 
 type Locale = 'zh' | 'en'
@@ -292,23 +295,4 @@ export default function BlogPostPage({ locale }: BlogPostPageProps) {
       </div>
     </>
   )
-}
-
-export async function getStaticProps({ locale }: { locale: Locale }) {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ['common'])),
-      locale,
-    },
-  }
-}
-
-export async function getStaticPaths({ locales }: { locales: Locale[] }) {
-  return {
-    paths: locales.map((locale) => ({
-      params: { id: '1' },
-      locale,
-    })),
-    fallback: false,
-  }
 } 

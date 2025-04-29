@@ -1,4 +1,6 @@
-import { useRouter } from 'next/router'
+'use client'
+
+import { usePathname, useRouter } from 'next/navigation'
 import { useTranslation } from 'next-i18next'
 import { useState } from 'react'
 import { FaGlobe } from 'react-icons/fa'
@@ -10,14 +12,14 @@ const languages = [
 
 export default function LanguageSwitcher() {
   const router = useRouter()
+  const pathname = usePathname()
   const { i18n } = useTranslation()
   const [isOpen, setIsOpen] = useState(false)
 
-  const currentLanguage = languages.find(lang => lang.code === router.locale)
+  const currentLanguage = languages.find(lang => lang.code === i18n.language)
 
   const switchLanguage = (locale: string) => {
-    const { pathname, asPath, query } = router
-    router.push({ pathname, query }, asPath, { locale })
+    i18n.changeLanguage(locale)
     setIsOpen(false)
   }
 
@@ -40,7 +42,7 @@ export default function LanguageSwitcher() {
               key={language.code}
               onClick={() => switchLanguage(language.code)}
               className={`w-full px-4 py-2 text-sm text-left hover:bg-gray-100 transition-colors ${
-                router.locale === language.code ? 'text-primary-600 font-medium' : 'text-gray-700'
+                i18n.language === language.code ? 'text-primary-600 font-medium' : 'text-gray-700'
               }`}
             >
               {language.name}

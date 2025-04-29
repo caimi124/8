@@ -1,8 +1,8 @@
+'use client'
+
 import { BlogCard } from '../../components/BlogCard'
 import { FaSearch } from 'react-icons/fa'
 import { useTranslation } from 'next-i18next'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import Head from 'next/head'
 import { useState, useMemo } from 'react'
 import SearchBar from '../../components/SearchBar'
 
@@ -166,75 +166,56 @@ export default function BlogPage({ locale }: BlogPageProps) {
   }, [searchQuery, locale])
 
   return (
-    <>
-      <Head>
-        <title>{t('meta.title')}</title>
-        <meta name="description" content={t('meta.description')} />
-        <link rel="alternate" hrefLang="zh" href="https://yourdomain.com/zh/blog" />
-        <link rel="alternate" hrefLang="en" href="https://yourdomain.com/en/blog" />
-        <link rel="canonical" href={`https://yourdomain.com/${locale}/blog`} />
-      </Head>
-
-      <div className="min-h-screen bg-gray-50">
-        {/* 博客头部 */}
-        <div className="bg-white shadow-sm">
-          <div className="container mx-auto px-4 py-12">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">
-              {t('nav.blog')}
-            </h1>
-            <p className="text-xl text-gray-600 mb-8">
-              {locale === 'zh' 
-                ? "探索传统中医智慧，了解现代科学研究"
-                : "Explore Traditional TCM Wisdom, Understand Modern Scientific Research"
-              }
-            </p>
-            
-            {/* 搜索框 */}
-            <div className="max-w-2xl">
-              <SearchBar onSearch={setSearchQuery} />
-            </div>
+    <div className="min-h-screen bg-gray-50">
+      {/* 博客头部 */}
+      <div className="bg-white shadow-sm">
+        <div className="container mx-auto px-4 py-12">
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+            {t('nav.blog')}
+          </h1>
+          <p className="text-xl text-gray-600 mb-8">
+            {locale === 'zh' 
+              ? "探索传统中医智慧，了解现代科学研究"
+              : "Explore Traditional TCM Wisdom, Understand Modern Scientific Research"
+            }
+          </p>
+          
+          {/* 搜索框 */}
+          <div className="max-w-2xl">
+            <SearchBar onSearch={setSearchQuery} />
           </div>
         </div>
-
-        {/* 博客内容 */}
-        <div className="container mx-auto px-4 py-12">
-          {filteredPosts.length === 0 ? (
-            <div className="text-center py-12">
-              <p className="text-gray-500 text-lg">
-                {locale === 'zh' 
-                  ? "没有找到相关文章"
-                  : "No articles found"
-                }
-              </p>
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredPosts.map((post) => (
-                <BlogCard 
-                  key={post.id} 
-                  post={{
-                    ...post,
-                    title: post.title[locale],
-                    excerpt: post.excerpt[locale],
-                    author: post.author[locale],
-                    tags: post.tags[locale],
-                    readTime: post.readTime[locale]
-                  }} 
-                />
-              ))}
-            </div>
-          )}
-        </div>
       </div>
-    </>
-  )
-}
 
-export async function getStaticProps({ locale }: { locale: Locale }) {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ['common'])),
-      locale,
-    },
-  }
+      {/* 博客内容 */}
+      <div className="container mx-auto px-4 py-12">
+        {filteredPosts.length === 0 ? (
+          <div className="text-center py-12">
+            <p className="text-gray-500 text-lg">
+              {locale === 'zh' 
+                ? "没有找到相关文章"
+                : "No articles found"
+              }
+            </p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredPosts.map((post) => (
+              <BlogCard 
+                key={post.id} 
+                post={{
+                  ...post,
+                  title: post.title[locale],
+                  excerpt: post.excerpt[locale],
+                  author: post.author[locale],
+                  tags: post.tags[locale],
+                  readTime: post.readTime[locale]
+                }} 
+              />
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  )
 } 

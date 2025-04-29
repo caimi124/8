@@ -1,11 +1,18 @@
-import '../styles/globals.css'
+import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const metadata = {
+export const metadata: Metadata = {
   title: '东方草药科学化',
-  description: '传统中药知识的现代化展示平台',
+  description: '探索传统中医智慧，了解现代科学研究',
+  alternates: {
+    languages: {
+      'zh': '/zh',
+      'en': '/en',
+    },
+  },
 }
 
 export default function RootLayout({
