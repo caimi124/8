@@ -6,7 +6,6 @@ export const metadata: Metadata = {
   description: '深入了解传统中药的现代科学解读，探索中医养生之道，获取权威的草药知识。'
 }
 
-// 将数据移动到单独的文件中
 const blogPosts = [
   {
     id: "1",
@@ -110,7 +109,6 @@ const blogPosts = [
   }
 ]
 
-// 确保这是一个纯服务器组件
-export default async function Page() {
-  return <BlogClient blogPosts={blogPosts} />
+export default function Page() {
+  return <BlogClient />;
 } 
